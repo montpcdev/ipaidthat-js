@@ -1,0 +1,36 @@
+{
+  "name": "@kriscarilloxyz/ipaidthat-js",
+  "version": "0.1.0",
+  "description": "IPaidThat client for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests -t 5000",
+    "coverage": "nyc mocha tests",
+    "coverage:html": "nyc --reporter=html mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montpcdev/ipaidthat-js.git"
+  },
+  "keywords": [
+    "ipaidthat",
+    "js",
+    "client"
+  ],
+  "author": "kriscarilloxyz <kriscarilloxyz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/montpcdev/ipaidthat-js/issues"
+  },
+  "homepage": "https://github.com/montpcdev/ipaidthat-js#readme",
+  "dependencies": {
+    "minimal-request-promise": "^1.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.1.3",
+    "nyc": "^15.1.0"
+  }
+}
