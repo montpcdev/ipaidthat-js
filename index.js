@@ -50,7 +50,7 @@ class Ipaidthat {
      * 
      * @memberof Ipaidthat
      */
-    async collectorInstancesList (categoryId) {
+    async collectorInstancesList () {
         const options = { headers: { 'Authorization': 'Token '+this.token } }
         return request.get(`${baseUrl}/collectorinstances/`, options)
             .then(res => JSON.parse(res.body))
