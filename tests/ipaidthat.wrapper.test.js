@@ -12,5 +12,20 @@ describe('wrapper', () => {
     it('creates an instance of the wrapper', () => {
       expect(() => new Ipaidthat(true)).to.be.a('function')
     })
+
+    it('has options', () => {
+      const client = new Ipaidthat(true)
+      expect(client).has.property('options')
+    })
+
+    it('has headers in options', () => {
+      const client = new Ipaidthat(true)
+      expect(client.options).has.property('headers')
+    })
+
+    it('has Authorization in headers', () => {
+      const client = new Ipaidthat(true)
+      expect(client.options.headers).has.property('Authorization')
+    })
   })
 })

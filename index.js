@@ -1,7 +1,5 @@
 const queryString = require('querystring')
 const request = require('minimal-request-promise')
-const baseUrl = 'https://ipaidthat.io/api/v2'
-
 
 /**
  *
@@ -16,10 +14,15 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     constructor(token) {
-      if (!token) { throw new Error('No token given.') }
-      this.token = token
+        if (!token) { throw new Error('No token given.') }
+        this.options = {
+            headers: {
+                'Authorization': `Token ${token}`,
+                'Content-Type': 'application/json'
+            }
+        }
     }
-  
+
     /**
      *
      *
@@ -27,9 +30,9 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async categoriesList () {
-      const options = { headers: { 'Authorization': 'Token '+this.token } }
-      return request.get(`${baseUrl}/categories/`, options)
-        .then(res => JSON.parse(res.body))
+        return request
+            .get('https://ipaidthat.io/api/v2/categories', this.options)
+            .then(res => JSON.parse(res.body))
     }
 
     /**
@@ -39,11 +42,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async categoryByID (categoryId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/categories/${categoryId}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -51,7 +54,7 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorInstancesList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectorinstances/`, options)
             .then(res => JSON.parse(res.body))
     }
@@ -63,11 +66,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorInstanceByID (collectorInstanceId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectorinstances/${collectorInstanceId}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -75,11 +78,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorInstanceEditByID (collectorInstanceId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectorinstances/${collectorInstanceId}/edit`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -87,11 +90,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorInstanceRefreshByID (collectorInstanceId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectorinstances/${collectorInstanceId}/refresh`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -99,11 +102,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorsList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectors/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -111,11 +114,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorConnect () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectors/connect`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -123,11 +126,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorByID (collectorId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectors/${collectorId}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -135,11 +138,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async collectorConnectByID (collectorId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/collectors/${collectorId}/connect`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -147,11 +150,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async entriesList (params) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/entries?${queryString.stringify(params)}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -159,11 +162,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async entryByID (entryId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/entries/${entryId}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -171,11 +174,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async entryDownloadByID (entryId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/entries/${entryId}/download`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -183,11 +186,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async firmsList (params) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/firms?${queryString.stringify(params)}`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -195,10 +198,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async firmByID (firmId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/firms/${firmId}`, options)
     }
-    
+
     /**
      *
      *
@@ -206,10 +209,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async organizationByID (organizationId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/organizations/${organizationId}`, options)
     }
-    
+
     /**
      *
      *
@@ -217,11 +220,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async providersList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/providers/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -229,10 +232,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async providerByID (providerId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/providers/${providerId}`, options)
     }
-    
+
     /**
      *
      *
@@ -240,11 +243,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async tagsList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/tags/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -252,10 +255,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async tagByID (tagId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/tags/${tagId}`, options)
     }
-    
+
     /**
      *
      *
@@ -263,11 +266,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async transactionsList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/transactions/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -275,11 +278,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async missingInvoicesList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/transactions/missing_invoices/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -287,7 +290,7 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async transactionByID (transactionId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/transactions/${transactionId}`, options)
     }
 
@@ -298,11 +301,11 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async usersList () {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/users/`, options)
             .then(res => JSON.parse(res.body))
     }
-    
+
     /**
      *
      *
@@ -310,9 +313,9 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     async userByID (userId) {
-        const options = { headers: { 'Authorization': 'Token '+this.token } }
+        const options = { headers: { 'Authorization': 'Token ' + this.token } }
         return request.get(`${baseUrl}/users/${userId}`, options)
     }
-  }
-  
-  module.exports = Ipaidthat
+}
+
+module.exports = Ipaidthat
