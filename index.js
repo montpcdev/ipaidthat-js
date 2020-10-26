@@ -18,7 +18,7 @@ class Ipaidthat {
         this.options = {
             headers: {
                 'Authorization': `Token ${token}`,
-                'Content-Type': 'application/json'
+                'accept': 'application/json'
             }
         }
     }
@@ -31,7 +31,7 @@ class Ipaidthat {
      */
     async categoriesList () {
         return request
-            .get('https://ipaidthat.io/api/v2/categories', this.options)
+            .get('https://ipaidthat.io/api/v2/categories/', this.options)
             .then(res => JSON.parse(res.body))
     }
 
