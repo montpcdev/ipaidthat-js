@@ -9,6 +9,7 @@
     "test:categoriesList": "mocha tests/ipaidthat.categoriesList.test",
     "test:categoriesById": "mocha tests/ipaidthat.categoriesById.test",
     "test:collectorInstanceList": "mocha tests/ipaidthat.collectorInstanceList.test",
+    "test:collectorInstanceById": "mocha tests/ipaidthat.collectorInstanceById.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },

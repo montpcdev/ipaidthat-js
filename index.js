@@ -70,12 +70,14 @@ class Ipaidthat {
     /**
      *
      *
-     * @param {*} collectorInstanceId
+     * @param {*} id
      * @memberof Ipaidthat
      */
-    async collectorInstanceByID (collectorInstanceId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/collectorinstances/${collectorInstanceId}`, options)
+    async collectorInstanceById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/collectorinstances/${id}/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
