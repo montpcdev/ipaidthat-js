@@ -144,9 +144,11 @@ class Ipaidthat {
      * 
      * @memberof Ipaidthat
      */
-    collectorConnect () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/collectors/connect`, options)
+    collectorsConnectList () {
+        return request.get(
+            'https://ipaidthat.io/api/v2/collectors/connect/',
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
