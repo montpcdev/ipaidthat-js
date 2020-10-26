@@ -31,7 +31,10 @@ class Ipaidthat {
      */
     async categoriesList () {
         return request
-            .get('https://ipaidthat.io/api/v2/categories/', this.options)
+            .get(
+                'https://ipaidthat.io/api/v2/categories/',
+                this.options
+            )
             .then(res => JSON.parse(res.body))
     }
 
@@ -43,7 +46,10 @@ class Ipaidthat {
      */
     async categoriesById (id) {
         return request
-            .get(`https://ipaidthat.io/api/v2/categories/${id}/`, this.options)
+            .get(
+                `https://ipaidthat.io/api/v2/categories/${id}/`,
+                this.options
+            )
             .then(res => JSON.parse(res.body))
     }
 
@@ -53,9 +59,11 @@ class Ipaidthat {
      * 
      * @memberof Ipaidthat
      */
-    async collectorInstancesList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/collectorinstances/`, options)
+    async collectorInstanceList () {
+        return request.get(
+            'https://ipaidthat.io/api/v2/collectorinstances/',
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 

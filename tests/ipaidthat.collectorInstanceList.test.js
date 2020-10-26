@@ -2,13 +2,14 @@ require('dotenv').config()
 const { expect } = require('chai')
 const Ipaidthat = require('../index')
 
-describe('categoriesById', () => {
+describe('collectorInstanceList', () => {
   it('returns an array', (done) => {
     const client = new Ipaidthat(process.env.IPAIDTHAT_TOKEN)
-    client.categoriesById(process.env.IPAIDTHAT_CATEGORYID)
+    client.collectorInstanceList()
       .then(response => {
-        expect(response).to.be.an('object')
+        expect(response).to.be.an('array')
         done()
       })
-  }).timeout(4000)
+      .catch(err => done(err))
+  }).timeout(3000)
 })
