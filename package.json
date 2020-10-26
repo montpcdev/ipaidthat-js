@@ -4,9 +4,10 @@
   "description": "IPaidThat client for node.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests -t 5000",
+    "test": "mocha tests",
     "test:wrapper": "mocha tests/ipaidthat.wrapper.test",
-    "test:categoryList": "mocha tests/ipaidthat.categoryList.test",
+    "test:categoriesList": "mocha tests/ipaidthat.categoriesList.test",
+    "test:categoriesById": "mocha tests/ipaidthat.categoriesById.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },

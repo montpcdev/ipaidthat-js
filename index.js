@@ -38,12 +38,12 @@ class Ipaidthat {
     /**
      *
      *
-     * @param {*} categoryId
+     * @param {*} id
      * @memberof Ipaidthat
      */
-    async categoryByID (categoryId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/categories/${categoryId}`, options)
+    async categoriesById (id) {
+        return request
+            .get(`https://ipaidthat.io/api/v2/categories/${id}/`, this.options)
             .then(res => JSON.parse(res.body))
     }
 
