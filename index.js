@@ -370,9 +370,12 @@ class Ipaidthat {
      * @param {*} providerId
      * @memberof Ipaidthat
      */
-    providerByID (providerId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/providers/${providerId}`, options)
+    providersById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/providers/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
     }
 
     /**
