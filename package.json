@@ -15,6 +15,7 @@
     "test:collectorInstanceByIdRefresh": "mocha tests/ipaidthat.collectorInstanceByIdRefresh.test",
     "test:collectorsList": "mocha tests/ipaidthat.collectorsList.test",
     "test:collectorsConnectList": "mocha tests/ipaidthat.collectorsConnectList.test",
+    "test:collectorsById": "mocha tests/ipaidthat.collectorsById.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },
