@@ -174,7 +174,7 @@ class Ipaidthat {
      */
     collectorsByIdConnect (id) {
         return request.get(
-            `https://ipaidthat.io/api/v2/collectors/connect/${id}/`,
+            `https://ipaidthat.io/api/v2/collectors/${id}/connect`,
             this.options
         )
             .then(res => JSON.parse(res.body))
