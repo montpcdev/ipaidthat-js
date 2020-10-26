@@ -247,6 +247,13 @@ class Ipaidthat {
             .then(res => JSON.parse(res.body))
     }
 
+    firmsByIdUpdateOrganizations (id) {
+        return request.post(
+            `https://ipaidthat.io/api/v2/firms/${id}/update_organisations/`
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
     /**
      *
      *
