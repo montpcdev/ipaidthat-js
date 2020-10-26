@@ -81,6 +81,13 @@ class Ipaidthat {
             .then(res => JSON.parse(res.body))
     }
 
+    /**
+     *
+     *
+     * @param {*} id
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
     collectorInstanceByIdDelete (id) {
         return request.delete(
             `https://ipaidthat.io/api/v2/collectorinstances/${id}/`,
@@ -95,8 +102,11 @@ class Ipaidthat {
      * @param {*} collectorInstanceId
      * @memberof Ipaidthat
      */
-    collectorInstanceEditByID (id) {
-        return request.get(`https://ipaidthat.io/api/v2/collectorinstances/${id}/edit`, options)
+    collectorInstanceByIdEdit (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/collectorinstances/${id}/edit/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
