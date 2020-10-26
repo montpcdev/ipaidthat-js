@@ -197,12 +197,14 @@ class Ipaidthat {
     /**
      *
      *
-     * @param {*} entryId
+     * @param {*} id
      * @memberof Ipaidthat
      */
-    entryByID (entryId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/entries/${entryId}`, options)
+    entriesById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/entries/${id}/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
