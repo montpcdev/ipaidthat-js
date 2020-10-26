@@ -2,12 +2,12 @@ require('dotenv').config()
 const { expect } = require('chai')
 const Ipaidthat = require('../index')
 
-describe('firmsNew', () => {
-  it('411', (done) => {
+describe('firmsByIdDelete', () => {
+  it('403', (done) => {
     const client = new Ipaidthat(process.env.IPAIDTHAT_TOKEN)
-    client.firmsNew({})
+    client.firmsByIdDelete({})
       .catch(err => {
-        expect(err.statusCode).to.equal(411)
+        expect(err.statusCode).to.equal(403)
         done()
       })
   }).timeout(5000)

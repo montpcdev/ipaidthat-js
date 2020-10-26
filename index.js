@@ -19,6 +19,7 @@ class Ipaidthat {
             headers: {
                 'Authorization': `Token ${token}`,
                 'Content-Type': 'application/json',
+                'accept': 'application/json'
             }
         }
     }
@@ -284,6 +285,22 @@ class Ipaidthat {
                 body: JSON.stringify(body),
                 ...this.options
             }
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @param {*} body
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    firmsByIdDelete (id, body) {
+        return request.delete(
+            `https://ipaidthat.io/api/v2/firms/${id}/`,
+            this.options
         )
             .then(res => JSON.parse(res.body))
     }
