@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests",
+    "test:query": "mocha tests/utils.query.test",
     "test:wrapper": "mocha tests/ipaidthat.wrapper.test",
     "test:categoriesList": "mocha tests/ipaidthat.categoriesList.test",
     "test:categoriesById": "mocha tests/ipaidthat.categoriesById.test",

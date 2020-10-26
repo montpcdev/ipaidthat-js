@@ -1,4 +1,4 @@
-const queryString = require('querystring')
+const query = require('./utils/query')
 const request = require('minimal-request-promise')
 
 /**
@@ -186,9 +186,11 @@ class Ipaidthat {
      * @param {*} params
      * @memberof Ipaidthat
      */
-    entriesList (params) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/entries?${queryString.stringify(params)}`, options)
+    entriesList (options) {
+        return request.get(
+            `https://ipaidthat.io/api/v2?${query(options)}`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
