@@ -188,7 +188,7 @@ class Ipaidthat {
      */
     entriesList (options) {
         return request.get(
-            `https://ipaidthat.io/api/v2?${query(options)}`,
+            `https://ipaidthat.io/api/v2/entries/?${query(options)}`,
             this.options
         )
             .then(res => JSON.parse(res.body))
