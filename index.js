@@ -18,7 +18,7 @@ class Ipaidthat {
         this.options = {
             headers: {
                 'Authorization': `Token ${token}`,
-                'accept': 'application/json'
+                'Content-Type': 'application/json',
             }
         }
     }
@@ -232,6 +232,17 @@ class Ipaidthat {
         return request.get(
             `https://ipaidthat.io/api/v2/firms/?${query(options)}`,
             this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    firmsNew (body) {
+        return request.post(
+            `https://ipaidthat.io/api/v2/firms/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            },
         )
             .then(res => JSON.parse(res.body))
     }
