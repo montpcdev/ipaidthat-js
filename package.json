@@ -20,6 +20,7 @@
     "test:collectorsByIdConnect": "mocha tests/ipaidthat.collectorsByIdConnect.test",
     "test:entriesList": "mocha tests/ipaidthat.entriesList.test",
     "test:entriesById": "mocha tests/ipaidthat.entriesById.test",
+    "test:entriesByIdDownload": "mocha tests/ipaidthat.entriesByIdDownload.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },
