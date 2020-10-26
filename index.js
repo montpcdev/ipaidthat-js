@@ -116,9 +116,11 @@ class Ipaidthat {
      * @param {*} collectorInstanceId
      * @memberof Ipaidthat
      */
-    collectorInstanceRefreshByID (collectorInstanceId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/collectorinstances/${collectorInstanceId}/refresh`, options)
+    collectorInstanceByIdRefresh (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/collectorinstances/${id}/refresh/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 

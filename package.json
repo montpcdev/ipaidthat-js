@@ -12,6 +12,7 @@
     "test:collectorInstanceById": "mocha tests/ipaidthat.collectorInstanceById.test",
     "test:collectorInstanceByIdDelete": "mocha tests/ipaidthat.collectorInstanceByIdDelete.test",
     "test:collectorInstanceByIdEdit": "mocha tests/ipaidthat.collectorInstanceByIdEdit.test",
+    "test:collectorInstanceByIdRefresh": "mocha tests/ipaidthat.collectorInstanceByIdRefresh.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },
