@@ -25,6 +25,7 @@
     "test:firmsNew": "mocha tests/ipaidthat.firmsNew.test",
     "test:firmsByIdUpdateOrganizations": "mocha tests/ipaidthat.firmsByIdUpdateOrganizations.test",
     "test:firmsById": "mocha tests/ipaidthat.firmsById.test",
+    "test:firmsByIdUpdate": "mocha tests/ipaidthat.firmsByIdUpdate.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },
