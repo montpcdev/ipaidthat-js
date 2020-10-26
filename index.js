@@ -385,8 +385,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     tagsList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/tags/`, options)
+        return request.get(
+            `https://ipaidthat.io/api/v2/tags/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 

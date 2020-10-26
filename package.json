@@ -32,6 +32,7 @@
     "test:organizationsByIdDelete": "mocha tests/ipaidthat.organizationsByIdDelete.test",
     "test:providersList": "mocha tests/ipaidthat.providersList.test",
     "test:providersById": "mocha tests/ipaidthat.providersById.test",
+    "test:tagsList": "mocha tests/ipaidthat.tagsList.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },
