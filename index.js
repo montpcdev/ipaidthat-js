@@ -131,8 +131,10 @@ class Ipaidthat {
      * @memberof Ipaidthat
      */
     collectorsList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/collectors/`, options)
+        return request.get(
+            'https://ipaidthat.io/api/v2/collectors/',
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
