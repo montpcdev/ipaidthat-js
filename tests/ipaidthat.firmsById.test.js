@@ -2,10 +2,10 @@ require('dotenv').config()
 const { expect } = require('chai')
 const Ipaidthat = require('../index')
 
-describe('firmsByIdUpdateOrganizations', () => {
+describe('firmsById', () => {
   it('403', (done) => {
     const client = new Ipaidthat(process.env.IPAIDTHAT_TOKEN)
-    client.firmsByIdUpdateOrganizations(1)
+    client.firmsById(1)
       .catch(err => {
         expect(err.statusCode).to.equal(403)
         done()

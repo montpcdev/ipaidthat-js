@@ -249,7 +249,8 @@ class Ipaidthat {
 
     firmsByIdUpdateOrganizations (id) {
         return request.post(
-            `https://ipaidthat.io/api/v2/firms/${id}/update_organisations/`
+            `https://ipaidthat.io/api/v2/firms/${id}/update_organisations/`,
+            this.options
         )
             .then(res => JSON.parse(res.body))
     }
@@ -260,9 +261,31 @@ class Ipaidthat {
      * @param {*} firmId
      * @memberof Ipaidthat
      */
-    firmByID (firmId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/firms/${firmId}`, options)
+    firmsById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/firms/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @param {*} body
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    firmsByIdUpdate (id, body) {
+        return request.put(
+            `https://ipaidthat.io/api/v2/firms/${id}/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+            .then(res => JSON.parse(res.body))
     }
 
     /**
