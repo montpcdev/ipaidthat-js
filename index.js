@@ -392,6 +392,22 @@ class Ipaidthat {
             .then(res => JSON.parse(res.body))
     }
 
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    tagsById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/tags/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
     /**
      *
      *
