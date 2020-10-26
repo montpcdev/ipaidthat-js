@@ -311,9 +311,11 @@ class Ipaidthat {
      * @param {*} organizationId
      * @memberof Ipaidthat
      */
-    organizationByID (organizationId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/organizations/${organizationId}`, options)
+    organizationsById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/organisations/${id}/`,
+            this.options
+        )
     }
 
     /**
