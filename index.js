@@ -308,7 +308,7 @@ class Ipaidthat {
     /**
      *
      *
-     * @param {*} organizationId
+     * @param {*} id
      * @memberof Ipaidthat
      */
     organizationsById (id) {
@@ -321,12 +321,46 @@ class Ipaidthat {
     /**
      *
      *
+     * @param {*} id
+     * @memberof Ipaidthat
+     */
+    organizationsByIdUpdate (id, body) {
+        return request.put(
+            `https://ipaidthat.io/api/v2/organisations/${id}/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+    }
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @memberof Ipaidthat
+     */
+    organizationsByIdDelete (id, body) {
+        return request.delete(
+            `https://ipaidthat.io/api/v2/organisations/${id}/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+    }
+
+    /**
+     *
+     *
      * 
      * @memberof Ipaidthat
      */
     providersList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/providers/`, options)
+        return request.get(
+            `https://ipaidthat.io/api/v2/providers/`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
