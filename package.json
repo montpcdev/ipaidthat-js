@@ -21,6 +21,7 @@
     "test:entriesList": "mocha tests/ipaidthat.entriesList.test",
     "test:entriesById": "mocha tests/ipaidthat.entriesById.test",
     "test:entriesByIdDownload": "mocha tests/ipaidthat.entriesByIdDownload.test",
+    "test:firmsList": "mocha tests/ipaidthat.firmsList.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },

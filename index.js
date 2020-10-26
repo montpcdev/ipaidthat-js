@@ -228,9 +228,11 @@ class Ipaidthat {
      * @param {*} params
      * @memberof Ipaidthat
      */
-    firmsList (params) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/firms?${queryString.stringify(params)}`, options)
+    firmsList (options) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/firms/?${query(options)}`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
