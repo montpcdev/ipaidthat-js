@@ -10,5 +10,5 @@ describe('collectorInstanceByIdRefresh', () => {
         expect(err.statusCode).to.equal(404)
         done()
       })
-  }).timeout(4000)
+  }).timeout(5000)
 })

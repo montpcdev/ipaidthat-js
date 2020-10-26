@@ -10,5 +10,5 @@ describe('categoriesById', () => {
         expect(response).to.be.an('object')
         done()
       })
-  }).timeout(4000)
+  }).timeout(5000)
 })

@@ -11,5 +11,5 @@ describe('collectorsConnectList', () => {
         done()
       })
       .catch(err => done(err))
-  }).timeout(3000)
+  }).timeout(5000)
 })
