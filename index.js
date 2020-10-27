@@ -433,6 +433,21 @@ class Ipaidthat {
     /**
      *
      *
+     * @param {*} id
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    transactionsById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/transactions/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
      * 
      * @memberof Ipaidthat
      */
