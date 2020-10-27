@@ -38,8 +38,13 @@
     "test:transactionsMissingInvoicesList": "mocha tests/ipaidthat.transactionsMissingInvoicesList.test",
     "test:transactionsById": "mocha tests/ipaidthat.transactionsById.test",
     "test:transactionsByIdToggleIgnore": "mocha tests/ipaidthat.transactionsByIdToggleIgnore.test",
+    "test:usersList": "mocha tests/ipaidthat.usersList.test",
+    "test:usersById": "mocha tests/ipaidthat.usersById.test",
+    "test:usersNew": "mocha tests/ipaidthat.usersNew.test",
+    "test:usersByIdUpdate": "mocha tests/ipaidthat.usersByIdUpdate.test",
+    "test:usersByIdDelete": "mocha tests/ipaidthat.usersByIdDelete.test",
     "coverage": "nyc mocha tests",
-    "coverage:html": "nyc --reporter=html mocha tests"
+    "coverage:html": "nyc --reporter=html mocha tests -t 10000"
   },
   "repository": {
     "type": "git",

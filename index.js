@@ -469,32 +469,11 @@ class Ipaidthat {
      * 
      * @memberof Ipaidthat
      */
-    missingInvoicesList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/transactions/missing_invoices/`, options)
-            .then(res => JSON.parse(res.body))
-    }
-
-    /**
-     *
-     *
-     * @param {*} transactionId
-     * @memberof Ipaidthat
-     */
-    transactionByID (transactionId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/transactions/${transactionId}`, options)
-    }
-
-    /**
-     *
-     *
-     * 
-     * @memberof Ipaidthat
-     */
     usersList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/users/`, options)
+        return request.get(
+            'https://ipaidthat.io/api/v2/users/',
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
@@ -504,9 +483,64 @@ class Ipaidthat {
      * @param {*} userId
      * @memberof Ipaidthat
      */
-    userByID (userId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/users/${userId}`, options)
+    usersById (id) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/users/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
+     * @param {*} body
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    usersNew (body) {
+        return request.get(
+            'https://ipaidthat.io/api/v2/users/',
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @param {*} body
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    usersByIdUpdate (id, body) {
+        return request.put(
+            `https://ipaidthat.io/api/v2/users/${id}/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
+     * @param {*} id
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    usersByIdDelete (id) {
+        return request.delete(
+            `https://ipaidthat.io/api/v2/users/${id}/`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
     }
 }
 
