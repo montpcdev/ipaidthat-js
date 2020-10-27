@@ -35,6 +35,7 @@
     "test:tagsList": "mocha tests/ipaidthat.tagsList.test",
     "test:tagsById": "mocha tests/ipaidthat.tagsById.test",
     "test:transactionsList": "mocha tests/ipaidthat.transactionsList.test",
+    "test:transactionsMissingInvoicesList": "mocha tests/ipaidthat.transactionsMissingInvoicesList.test",
     "coverage": "nyc mocha tests",
     "coverage:html": "nyc --reporter=html mocha tests"
   },

@@ -422,6 +422,14 @@ class Ipaidthat {
             .then(res => JSON.parse(res.body))
     }
 
+    transactionsMissingInvoicesList (options) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/transactions/missing_invoices/?${query(options)}`,
+            this.options
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
     /**
      *
      *
