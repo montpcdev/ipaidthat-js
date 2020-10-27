@@ -448,6 +448,24 @@ class Ipaidthat {
     /**
      *
      *
+     * @param {*} id
+     * @return {*} 
+     * @memberof Ipaidthat
+     */
+    transactionsByIdToggleIgnore (id, body) {
+        return request.post(
+            `https://ipaidthat.io/api/v2/transactions/${id}/toggle_ignore/`,
+            {
+                body: JSON.stringify(body),
+                ...this.options
+            }
+        )
+            .then(res => JSON.parse(res.body))
+    }
+
+    /**
+     *
+     *
      * 
      * @memberof Ipaidthat
      */
