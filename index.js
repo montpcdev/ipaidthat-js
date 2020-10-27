@@ -175,7 +175,7 @@ class Ipaidthat {
      */
     collectorsByIdConnect (id) {
         return request.get(
-            `https://ipaidthat.io/api/v2/collectors/${id}/connect`,
+            `https://ipaidthat.io/api/v2/collectors/${id}/connect/`,
             this.options
         )
             .then(res => JSON.parse(res.body))
@@ -411,23 +411,14 @@ class Ipaidthat {
     /**
      *
      *
-     * @param {*} tagId
-     * @memberof Ipaidthat
-     */
-    tagByID (tagId) {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/tags/${tagId}`, options)
-    }
-
-    /**
-     *
-     *
      * 
      * @memberof Ipaidthat
      */
-    transactionsList () {
-        const options = { headers: { 'Authorization': 'Token ' + this.token } }
-        return request.get(`${baseUrl}/transactions/`, options)
+    transactionsList (options) {
+        return request.get(
+            `https://ipaidthat.io/api/v2/transactions/?${query(options)}`,
+            this.options
+        )
             .then(res => JSON.parse(res.body))
     }
 
